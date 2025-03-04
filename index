@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<header>
+	<meta charset="UTF-8">
+	<script src="scripts/script.js" defer></script>
+	<script src="scripts/main.js" defer></script>
+</header>
+<body>
+<head>
+<h1>Calculateur de paramètres de coupe pour la CNC</h1>
+</head>
+<main>
+<h2>
+Le calculateur
+</h2>
+<form action="" method="post">
+  <fieldset>
+     <legend>Données calculateur de paramètres de coupe</legend> <!-- Titre du fieldset -->
+     <div>
+	     <h3>Matériau</h3>
+	     <label for="typeMateriau">Type matériau</label>
+			<select id="typeMateriau" name="typeMateriau" class="field large required valid" aria-invalid="false">
+				<option selected="selected" value="0">Bois tendre, MDF</option>
+				<option value="1">Bois dur, Contreplaqué</option>
+				<option value="2">PVC expansé</option>
+				<option value="3">POM, PMMA, PC</option>
+				<option value="4">Cuivre, Laiton</option>
+				<option value="5">Aluminium &lt;10% Si (lubrifié)</option>
+				<option value="6">Aluminium &gt;10% Si (lubrifié)</option>
+			</select>
+		</div>
+		<div>
+			<h3>Fraise</h3>
+			<label for="typeFraise" >Type</label>
+			<select id="typeFraise" name="typeFraise" class="field large required">
+				<option selected="selected" value="0">Fraise HSS</option>
+				<option value="1">Fraise Carbure</option>
+			</select>
+			<label for="diam">Diamètre</label>
+			<input inputmode="decimal" aria-label="Nombre de dents" id="diam" name="diam" min="1" step="1" class="field digits large required" type="number" value="3">
+			<label for="nbd">Nombre de dents</label>
+			<input inputmode="decimal" aria-label="Nombre de dents" id="nbdent" name="nbdent" min="1" step="1" class="field digits large required" type="number" value="2">
+		</div>
+		<div>
+			<h3>Machine</h3>
+			<label for="TypeMachine">Type de machine</label>
+				<select aria-label="Type de machine" id="TypeMachine" name="TypeMachine" class="field large required">
+				<option value="1" vt="CNC de bureau legère (3018...)" data-i="0" selected="selected">CNC de bureau legère (3018...)</option>
+				<option value="2" vt="CNC de bureau (Aureus 3x, Shapeoko, XCarve...)" data-i="1">CNC de bureau (Aureus 3x, Shapeoko, XCarve...)</option>
+				<option value="4" vt="CNC industrielle" data-i="2">CNC industrielle</option>
+			</select>
+			<label for="limite">
+			<input name="limite" id="limite" class="limite" value="limiteon" type="radio">
+			<span>Prise en compte des limites machine</span>
+			</label>
+			<div>
+				<label for="fieldname6_1">Vitesse maximale de rotation de la broche (rpm)</label>
+				<input d="fieldname6_1" name="fieldname6_1" step="1" class="field digits large required" type="number" value="25000">
+				<label for="fieldname13_1">Vitesse d'avance maximale des axes (mm/min)</label>
+				<input id="fieldname13_1" name="fieldname13_1" step="1" class="field digits large required" type="number" value="2500">
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Résultats</legend>
+		<div>
+		<label for="vitesseBroche">Vitesse de rotation de la broche</label>
+		<input id="vitesseBroche" name="vitessebroche" readonly="readonly" class="codepeoplecalculatedfield field large valid" type="text" value="53052 rpm">
+		<label for="vitesseAvance">Vitesse d'avance</label>
+		<input id="vitesseAvance" name="vitesseAvance" readonly="readonly" class="codepeoplecalculatedfield field large valid" type="text" value="8488 mm/min">
+		</div>
+		<div>
+		<label for="vitesseMaxAvanceZ">Vitesse Max d'avance en Z</label>
+		<input id="vitesseMaxAvanceZ" name="vitesseMaxAvanceZ" readonly="readonly" class="codepeoplecalculatedfield field large valid" type="text" value="4244 mm/mn">
+		<label for="profondeurPasse">Profondeur de passe</label>
+		<input id="profondeurPasse" name="profondeurPasse" readonly="readonly" class="codepeoplecalculatedfield field large valid" type="text" value="0.5 mm"><span class="uh"></span></div><div class="clearer"></div></div></div><div class="clearer"></div></div><div class="fields resultat fieldname22_1 cff-calculated-field column1" id="field_1-14" style="padding:0;margin:0;border:0;opacity:0;width:0;height:0;overflow:hidden;">
+		</div>		
+		</fieldset>
+</form>
+</main>
+<footer></footer>
+</body>
+</html>
