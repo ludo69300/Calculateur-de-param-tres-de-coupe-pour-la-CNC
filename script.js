@@ -11,7 +11,7 @@ function claculeParamcoupe() {
 	
 	let indexMateriau = parseInt(inputMateriau.value);
 	let indexFraise = parseInt(inputFraise.value);
-	let indexDiam = inputDiam.value;
+	let indexDiam = parseFloat(inputDiam.value);
 	let indexNbD= Math.round(inputNbD.value);
 	let indexMachine= parseInt(inputMachine.value);
 	let indexLimite= btnLimite.checked;
@@ -27,7 +27,7 @@ function claculeParamcoupe() {
 	console.log(indexFraise);
 	})
 	inputDiam.addEventListener("change", () => {
-		indexDiam = inputDiam.value;
+		indexDiam = parseFloat(inputDiam.value);
 	console.log(indexDiam);
 	})
 	inputNbD.addEventListener("change", () => {
