@@ -2,9 +2,9 @@
 <html lang="fr">
 <header>
 	<meta charset="UTF-8">
-	<script src="scripts/main.js" defer></script>
 	<script src="scripts/config.js" defer></script>
 	<script src="scripts/script.js" defer></script>
+	<script src="scripts/main.js" defer></script>
 </header>
 <body>
 <head>
@@ -34,8 +34,8 @@ Le calculateur
 			<h3>Fraise</h3>
 			<label for="typeFraise" >Type</label>
 			<select id="typeFraise" name="typeFraise" class="field large required">
-				<option selected="selected" value="0">Fraise HSS</option>
-				<option value="1">Fraise Carbure</option>
+				<option selected="selected" value="1">Fraise HSS</option>
+				<option value="2">Fraise Carbure</option>
 			</select>
 			<label for="diam">Diamètre</label>
 			<input inputmode="decimal" aria-label="Nombre de dents" id="diam" name="diam" min="1" step="1" class="field digits large required" type="number" value="3">
