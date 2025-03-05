@@ -5,9 +5,9 @@ function claculeParamcoupe() {
 	let inputDiam = document.getElementById("diam");
 	let inputNbD = document.getElementById("nbdent");
 	let inputMachine = document.getElementById("TypeMachine");
-	let btnLimite= document.getElementById("limite")
-	let inputVitMaxTotation= document.getElementById("vitMaxTotation")
-	let inputVitMaxAvance= document.getElementById("vitMaxAvance")
+	let btnLimite= document.getElementById("limite");
+	let inputVitMaxTotation= document.getElementById("vitMaxTotation");
+	let inputVitMaxAvance= document.getElementById("vitMaxAvance");
 	
 	let indexMateriau = parseInt(inputMateriau.value);
 	let indexFraise = parseInt(inputFraise.value);
