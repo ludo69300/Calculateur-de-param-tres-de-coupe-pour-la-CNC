@@ -1,4 +1,4 @@
-function calculFrRotation(vc, diam, rotMax , coefMachine, chek , machine)) {
+function calculFrRotation(vc, diam, rotMax , coefMachine, chek , machine) {
 	let coef=1
 	if (chek){ 
 		 coef= coeficienMachine[machine]
