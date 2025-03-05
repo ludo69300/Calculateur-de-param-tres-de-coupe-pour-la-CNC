@@ -54,10 +54,10 @@ Le calculateur
 			<span>Prise en compte des limites machine</span>
 			</label>
 			<div>
-				<label for="fieldname6_1">Vitesse maximale de rotation de la broche (rpm)</label>
-				<input d="fieldname6_1" name="fieldname6_1" step="1" class="field digits large required" type="number" value="25000">
-				<label for="fieldname13_1">Vitesse d'avance maximale des axes (mm/min)</label>
-				<input id="fieldname13_1" name="fieldname13_1" step="1" class="field digits large required" type="number" value="2500">
+				<label for="vitMaxTotation">Vitesse maximale de rotation de la broche (rpm)</label>
+				<input d="vitMaxTotation" name="vitMaxTotation" step="1" class="field digits large required" type="number" value="25000">
+				<label for="vitMaxAvance">Vitesse d'avance maximale des axes (mm/min)</label>
+				<input id="vitMaxAvance" name="vitMaxAvance" step="1" class="field digits large required" type="number" value="2500">
 			</div>
 		</div>
 	</fieldset>
