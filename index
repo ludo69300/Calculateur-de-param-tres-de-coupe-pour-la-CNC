@@ -55,9 +55,9 @@ Le calculateur
 			</label>
 			<div>
 				<label for="vitMaxTotation">Vitesse maximale de rotation de la broche (rpm)</label>
-				<input d="vitMaxTotation" name="vitMaxTotation" step="1" class="field digits large required" type="number" value="25000">
+				<input d="vitMaxTotation" name="vitMaxTotation" step="10" class="field digits large required" type="number" value="25000">
 				<label for="vitMaxAvance">Vitesse d'avance maximale des axes (mm/min)</label>
-				<input id="vitMaxAvance" name="vitMaxAvance" step="1" class="field digits large required" type="number" value="2500">
+				<input id="vitMaxAvance" name="vitMaxAvance" step="10" class="field digits large required" type="number" value="2500">
 			</div>
 		</div>
 	</fieldset>
