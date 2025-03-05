@@ -1,3 +1,10 @@
+function calculFrRotation(vc, diam, rotMax , coefMachine, chek , machine)) {
+	let coef=1
+	if (chek){ 
+		 coef= coeficienMachine[machine]
+	}
+	return Math.min(rotMax,(1000*vc)/(Math.PI*diam))*coef
+}
 
 function claculeParamcoupe() {
 	let inputMateriau = document.getElementById("typeMateriau");
@@ -6,7 +13,7 @@ function claculeParamcoupe() {
 	let inputNbD = document.getElementById("nbdent");
 	let inputMachine = document.getElementById("TypeMachine");
 	let btnLimite= document.getElementById("limite");
-	let inputVitMaxTotation= document.getElementById("vitMaxTotation");
+	let inputVitMaxRotation= document.getElementById("vitMaxRotation");
 	let inputVitMaxAvance= document.getElementById("vitMaxAvance");
 	
 	let indexMateriau = parseInt(inputMateriau.value);
@@ -15,7 +22,7 @@ function claculeParamcoupe() {
 	let indexNbD= Math.round(inputNbD.value);
 	let indexMachine= parseInt(inputMachine.value);
 	let indexLimite= btnLimite.checked;
-	let indexVitMaxTotation = parseInt(inputVitMaxTotation.value);
+	let indexVitMaxRotation = parseInt(inputVitMaxRotation.value);
 	let indexVitMaxAvance= parseInt(inputVitMaxAvance.value);
 	
 	inputMateriau.addEventListener("change", () => {
@@ -42,14 +49,16 @@ function claculeParamcoupe() {
 		indexLimite = btnLimite.checked;
 	console.log(indexLimite);
 	})
-	inputVitMaxTotation.addEventListener("change", () => {
-		indexVitMaxTotation = parseInt(inputVitMaxTotation.value);
-	console.log(indexVitMaxTotation);
+	vitMaxRotation.addEventListener("change", () => {
+		indexVitMaxRotation = parseInt(vitMaxRotation.value);
+	console.log(indexVitMaxRotation);
 	})
 	inputVitMaxAvance.addEventListener("change", () => {
 		indexVitMaxAvance = parseInt(inputVitMaxAvance.value);
 	console.log(indexVitMaxAvance);
 	})
+	console.log(indexMateriau);
 	console.log(indexFraise);
-	console.log(indexLimite);
+	console.log(listeParam[indexMateriau][indexFraise])
 }
+
