@@ -51,12 +51,12 @@ Le calculateur
 				<option value="4" vt="CNC industrielle" data-i="2">CNC industrielle</option>
 			</select>
 			<label for="limite">
-			<input name="limite" id="limite" class="limite" value="limiteon" type="radio">
+			<input name="limite" id="limite" class="limite" value="limiteon" type="checkbox">
 			<span>Prise en compte des limites machine</span>
 			</label>
 			<div>
-				<label for="vitMaxTotation">Vitesse maximale de rotation de la broche (rpm)</label>
-				<input id="vitMaxTotation" name="vitMaxTotation" step="10" class="field digits large required" type="number" value="25000">
+				<label for="vitMaxRotation">Vitesse maximale de rotation de la broche (rpm)</label>
+				<input id="vitMaxRotation" name="vitMaxRotation" step="10" class="field digits large required" type="number" value="25000">
 				<label for="vitMaxAvance">Vitesse d'avance maximale des axes (mm/min)</label>
 				<input id="vitMaxAvance" name="vitMaxAvance" step="10" class="field digits large required" type="number" value="2500">
 			</div>
