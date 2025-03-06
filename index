@@ -38,14 +38,14 @@ Le calculateur
 				<option value="2">Fraise Carbure</option>
 			</select>
 			<label for="diam">Diamètre</label>
-			<input inputmode="decimal" aria-label="Nombre de dents" id="diam" name="diam" min="1" step="1" class="field digits large required" type="number" value="3">
+			<input inputmode="decimal" id="diam" name="diam" min="2" max="6" step="1" class="field digits large required" type="number" value="3">
 			<label for="nbd">Nombre de dents</label>
 			<input inputmode="decimal" aria-label="Nombre de dents" id="nbdent" name="nbdent" min="1" step="1" class="field digits large required" type="number" value="2">
 		</div>
 		<div>
 			<h3>Machine</h3>
 			<label for="TypeMachine">Type de machine</label>
-				<select aria-label="Type de machine" id="TypeMachine" name="TypeMachine" class="field large required">
+				<select id="TypeMachine" name="TypeMachine" class="field large required">
 				<option value="1" vt="CNC de bureau legère (3018...)" data-i="0" selected="selected">CNC de bureau legère (3018...)</option>
 				<option value="2" vt="CNC de bureau (Aureus 3x, Shapeoko, XCarve...)" data-i="1">CNC de bureau (Aureus 3x, Shapeoko, XCarve...)</option>
 				<option value="4" vt="CNC industrielle" data-i="2">CNC industrielle</option>
@@ -56,9 +56,9 @@ Le calculateur
 			</label>
 			<div>
 				<label for="vitMaxRotation">Vitesse maximale de rotation de la broche (rpm)</label>
-				<input id="vitMaxRotation" name="vitMaxRotation" step="10" class="field digits large required" type="number" value="25000">
+				<input id="vitMaxRotation" name="vitMaxRotation" step="10" class="field digits large required" type="number" value="20000">
 				<label for="vitMaxAvance">Vitesse d'avance maximale des axes (mm/min)</label>
-				<input id="vitMaxAvance" name="vitMaxAvance" step="10" class="field digits large required" type="number" value="2500">
+				<input id="vitMaxAvance" name="vitMaxAvance" step="10" class="field digits large required" type="number" value="2000">
 			</div>
 		</div>
 	</fieldset>
