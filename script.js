@@ -3,16 +3,17 @@ function calculFrRotation(vc, diam, rotMax , chek , machine) {
 	if (chek){ 
 		 coef= coeficienMachine[machine]
 	}
-	document.getElementById("vitesseBroche").value = Math.min(rotMax,(1000*vc)/(Math.PI*diam))*coef
+	document.getElementById("vitesseBroche").value = parseInt(Math.min(rotMax,(1000*vc)/(Math.PI*diam))*coef);
 }
-function calculAvance(n,fz,Z){
-	document.getElementById("vitesseAvance").value = n*fz*Z
+function calculAvance(n,fz,Z,vfMax){
+	document.getElementById("vitesseAvance").value = parseInt(Math.min(n*fz*Z,vfMax));
 }
 function calculAvanceZ(vc){
-	document.getElementById("vitesseMaxAvanceZ").value = vc/2
+	document.getElementById("vitesseMaxAvanceZ").value = vc/2;
+	console.log("Vc2 : " + vc);
 }
 function calculProfonPasse(ap){
-	document.getElementById("profondeurPasse").value = ap/4
+	document.getElementById("profondeurPasse").value = ap/4;
 }
 function claculeParamcoupe() {
 	let inputMateriau = document.getElementById("typeMateriau");
@@ -24,6 +25,10 @@ function claculeParamcoupe() {
 	let inputVitMaxRotation= document.getElementById("vitMaxRotation");
 	let inputVitMaxAvance= document.getElementById("vitMaxAvance");
 
+	let inputVitBroche= document.getElementById("vitesseBroche");
+	let inputVitAvance= document.getElementById("vitesseAvance")
+
+
 	let indexMateriau = parseInt(inputMateriau.value);
 	let indexFraise = parseInt(inputFraise.value);
 	let indexDiam = parseFloat(inputDiam.value);
@@ -32,46 +37,53 @@ function claculeParamcoupe() {
 	let indexLimite= btnLimite.checked;
 	let indexVitMaxRotation = parseInt(inputVitMaxRotation.value);
 	let indexVitMaxAvance= parseInt(inputVitMaxAvance.value);
+
+	let indexVitBroche= parseInt(inputVitBroche.value);
 	
 	inputMateriau.addEventListener("change", () => {
 		indexMateriau = parseInt(inputMateriau.value);
-	console.log(indexMateriau);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	})
 	inputFraise.addEventListener("change", () => {
 		indexFraise = parseInt(inputFraise.value);
-	console.log(indexFraise);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	})
 	inputDiam.addEventListener("change", () => {
 		indexDiam = parseFloat(inputDiam.value);
-	console.log(indexDiam);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
+		calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
 	})
 	inputNbD.addEventListener("change", () => {
 		indexNbD = Math.round(inputNbD.value);
-	console.log(indexNbD);
+		calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD);
 	})
 	inputMachine.addEventListener("change", () => {
 		indexMachine = parseInt(inputMachine.value);
-	console.log(indexMachine);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	})
 	btnLimite.addEventListener("change", () => {
 		indexLimite = btnLimite.checked;
-	console.log(indexLimite);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	})
 	vitMaxRotation.addEventListener("change", () => {
 		indexVitMaxRotation = parseInt(vitMaxRotation.value);
-	console.log(indexVitMaxRotation);
+		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	})
 	inputVitMaxAvance.addEventListener("change", () => {
 		indexVitMaxAvance = parseInt(inputVitMaxAvance.value);
-	console.log(indexVitMaxAvance);
+		calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
 	})
-	console.log(indexDiam);
-	console.log(indexVitMaxRotation);
-	console.log(listeParam[indexMateriau][indexFraise]);
-	console.log(indexLimite);
-	console.log(indexMachine);
+
+	inputVitBroche.addEventListener("change", () => {
+		console.log("calcul avance" );
+		calculAvance(parseInt(inputVitBroche.value), listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
+	})
+	inputVitAvance.addEventListener("change", () => {
+		console.log("calcul avance Z" );
+		calculAvanceZ(parseInt(inputVitAvance.value));
+	})
 	calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
-	calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD);
+	calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
 	calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
 }
