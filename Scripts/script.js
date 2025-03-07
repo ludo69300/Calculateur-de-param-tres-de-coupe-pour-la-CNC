@@ -11,9 +11,6 @@ function calculAvance(n,fz,Z){
 function calculAvanceZ(vc){
 	document.getElementById("vitesseMaxAvanceZ").value = vc/2;
 };
-function calculProfonPasse(ap){
-	document.getElementById("profondeurPasse").value = ap/4;
-};
 function claculParamcoupe() {
 	let inputMateriau = document.getElementById("typeMateriau");
 	let inputFraise = document.getElementById("typeFraise");
