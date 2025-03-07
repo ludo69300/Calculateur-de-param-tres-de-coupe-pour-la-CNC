@@ -1,14 +1,9 @@
-function calculFrRotation(vc, diam, rotMax , chek , machine) {
-	let coef=1
-	if (chek){ 
-		 coef= coeficienMachine[machine]
-	}
-	let n= parseInt(Math.min(rotMax,(1000*vc)/(Math.PI*diam))*coef);
-	document.getElementById("vitesseBroche").value = n;
-	return n
+function calculFrRotation(vc, diam) {
+	return parseInt((1000*vc)/(Math.PI*diam));
 };
-function calculAvance(n,fz,Z,vfMax){
-	document.getElementById("vitesseAvance").value = parseInt(Math.min(n*fz*Z,vfMax));
+function calculAvance(n,fz,Z){
+	let vc = parseInt(n*fz*Z);
+	document.getElementById("vitesseAvance").value = vc;
 		let ratio = vfMax/(n*fz*Z)
 		if ( ratio>1 ) {ratio=1}
 	return ratio
@@ -41,53 +36,64 @@ function claculParamcoupe() {
 	inputMateriau.addEventListener("change", () => {
 		indexMateriau = parseInt(inputMateriau.value);
 		calculs()
-	})
+	});
 	inputFraise.addEventListener("change", () => {
 		indexFraise = parseInt(inputFraise.value);
 		calculs()
-	})
+	});
 	inputDiam.addEventListener("change", () => {
 		indexDiam = parseFloat(inputDiam.value);
 		calculs()
-	})
+	});
 	inputNbD.addEventListener("change", () => {
 		indexNbD = Math.round(inputNbD.value);
 		calculs()
-	})
+	});
 	inputMachine.addEventListener("change", () => {
 		indexMachine = parseInt(inputMachine.value);
 		calculs()
-	})
+	});
 	btnLimite.addEventListener("change", () => {
 		indexLimite = btnLimite.checked;
 		calculs()
-	})
+	});
 	vitMaxRotation.addEventListener("change", () => {
 		indexVitMaxRotation = parseInt(vitMaxRotation.value);
 		calculs()
-	})
+	});
 	inputVitMaxAvance.addEventListener("change", () => {
 		indexVitMaxAvance = parseInt(inputVitMaxAvance.value);
 		calculs()
-	})
+	});
 	function calculs() {
-	let inputVitBroche = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
-	let Fz = listeParam[indexMateriau][indexDiam+1]
-	console.log("Fz : " + Fz);
-	let ratio = calculAvance(inputVitBroche, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
-	console.log("ration : " +ratio);
-	if (ratio<1) {inputVitBroche=inputVitBroche*ratio;
-		document.getElementById("vitesseBroche").value=inputVitBroche;
-	}
-	calculAvanceZ(document.getElementById("vitesseAvance").value);
-	let ap = listeParam[indexMateriau][indexDiam+6];
+		// On calcule la vitesse de rotation :
+		let n = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam);
+		if (indexLimite){ 
+			if (n>indexVitMaxRotation)
+				{n=indexVitMaxRotation}
+		};
+		document.getElementById("vitesseBroche").value = n;
 
-	let coef=1
-	if (indexLimite){ 
-		 coef= coeficienMachine[indexMachine]
-	}
-	console.log("ap  :" + ap +" coef :  "+ + coef);
-	document.getElementById("profondeurPasse").value = ap/coef;
-	}
-	calculs()
+		// On calcule la vitesse d’avance :
+		let Fz = listeParam[indexMateriau][indexDiam+1]
+		console.log("Fz : " + Fz);
+		let ratio = calculAvance(n, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
+
+		// On adapte de nouveau la vitesse de rotation :
+		console.log("ration : " +ratio);
+		if (ratio<1) {
+			n=n*ratio;
+			document.getElementById("vitesseBroche").value=n;
+		}
+		// On calcule la vitesse de rotation sur Z:
+		calculAvanceZ(document.getElementById("vitesseAvance").value);
+		let ap = listeParam[indexMateriau][indexDiam+6];
+		let coef=1
+		if (indexLimite){ 
+			coef= coeficienMachine[indexMachine]
+		}
+		console.log("ap  :" + ap +" coef :  "+ + coef);
+		document.getElementById("profondeurPasse").value = ap/coef;
+		}
+		calculs()
 };
