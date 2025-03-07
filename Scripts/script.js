@@ -2,8 +2,7 @@ function calculFrRotation(vc, diam) {
 	return parseInt((1000*vc)/(Math.PI*diam));
 };
 function calculAvance(n,fz,Z){
-	let vc = parseInt(n*fz*Z);
-	return vc
+	return parseInt(n*fz*Z);
 };
 function calculAvanceZ(vc){
 	document.getElementById("vitesseMaxAvanceZ").value = vc/2;
