@@ -7,4 +7,4 @@ const listeParam = [
 ['Aluminium (<10% Si)',62,125,0.015,0.025,0.035,0.045,0.6,0.3,0.6,0.9,1.2,1.5],
 ['Aluminium (>10% Si)',40,80,0.006,0.015,0.02,0.03,0.04,0.15,0.3,0.5,0.7,0.9]
 ];
-const coeficienMachine = [0.25,1,4]
+const coeficienMachine = [4,1,0.25]
