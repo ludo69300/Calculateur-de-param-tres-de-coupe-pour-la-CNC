@@ -19,7 +19,7 @@ function calculAvanceZ(vc){
 function calculProfonPasse(ap){
 	document.getElementById("profondeurPasse").value = ap/4;
 };
-function claculeParamcoupe() {
+function claculParamcoupe() {
 	let inputMateriau = document.getElementById("typeMateriau");
 	let inputFraise = document.getElementById("typeFraise");
 	let inputDiam = document.getElementById("diam");
@@ -74,11 +74,14 @@ function claculeParamcoupe() {
 	})
 	inputVitMaxAvance.addEventListener("change", () => {
 		indexVitMaxAvance = parseInt(inputVitMaxAvance.value);
-		calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
+		calculs()
 	})
+	function calculs() {
 	let inputVitBroche = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	let ratio = calculAvance(inputVitBroche, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
 	if (ratio<1) {calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);}
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
 	calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
+	}
+	calculs()
 };

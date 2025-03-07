@@ -1,1 +1,1 @@
-claculeParamcoupe()
+claculParamcoupe()
