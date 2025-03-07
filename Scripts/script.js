@@ -72,13 +72,22 @@ function claculParamcoupe() {
 	})
 	function calculs() {
 	let inputVitBroche = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
+	let Fz = listeParam[indexMateriau][indexDiam+1]
+	console.log("Fz : " + Fz);
 	let ratio = calculAvance(inputVitBroche, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
-	console.log(ratio);
+	console.log("ration : " +ratio);
 	if (ratio<1) {inputVitBroche=inputVitBroche*ratio;
 		document.getElementById("vitesseBroche").value=inputVitBroche;
 	}
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
-	calculProfonPasse(listeParam[indexMateriau][indexDiam+6]);
+	let ap = listeParam[indexMateriau][indexDiam+6];
+
+	let coef=1
+	if (indexLimite){ 
+		 coef= coeficienMachine[indexMachine]
+	}
+	console.log("ap  :" + ap +" coef :  "+ + coef);
+	document.getElementById("profondeurPasse").value = ap/coef;
 	}
 	calculs()
 };
