@@ -80,15 +80,11 @@ function claculParamcoupe() {
 		document.getElementById("vitesseBroche").value=inputVitBroche;
 	}
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
-<<<<<<< HEAD
-	calculProfonPasse(listeParam[indexMateriau][indexDiam+4]);
-=======
 	let ap = listeParam[indexMateriau][indexDiam+6];
 
 	let coef=1
 	if (indexLimite){ 
 		 coef= coeficienMachine[indexMachine]
->>>>>>> 1da9d3ca2e445056c428946294366c95100f071d
 	}
 	console.log("ap  :" + ap +" coef :  "+ + coef);
 	document.getElementById("profondeurPasse").value = ap/coef;
