@@ -83,5 +83,5 @@ function claculeParamcoupe() {
 	calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
 	calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
-}
+};
 
