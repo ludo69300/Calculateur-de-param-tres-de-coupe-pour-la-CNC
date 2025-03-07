@@ -3,10 +3,7 @@ function calculFrRotation(vc, diam) {
 };
 function calculAvance(n,fz,Z){
 	let vc = parseInt(n*fz*Z);
-	document.getElementById("vitesseAvance").value = vc;
-		let ratio = vfMax/(n*fz*Z)
-		if ( ratio>1 ) {ratio=1}
-	return ratio
+	return vc
 };
 function calculAvanceZ(vc){
 	document.getElementById("vitesseMaxAvanceZ").value = vc/2;
@@ -63,6 +60,7 @@ function claculParamcoupe() {
 		calculs()
 	});
 	function calculs() {
+
 		// On calcule la vitesse de rotation :
 		let n = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam);
 		if (indexLimite){ 
@@ -72,18 +70,23 @@ function claculParamcoupe() {
 		document.getElementById("vitesseBroche").value = n;
 
 		// On calcule la vitesse d’avance :
-		let Fz = listeParam[indexMateriau][indexDiam+1]
-		console.log("Fz : " + Fz);
-		let ratio = calculAvance(n, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
+		let fz = listeParam[indexMateriau][indexDiam+1]
+		console.log("Fz : " + fz);
+		let vf = calculAvance(n, fz,indexNbD,);
 
 		// On adapte de nouveau la vitesse de rotation :
-		console.log("ration : " +ratio);
-		if (ratio<1) {
-			n=n*ratio;
-			document.getElementById("vitesseBroche").value=n;
+		if (indexLimite) {
+			if (vf>indexVitMaxAvance) {
+				ratio=indexVitMaxAvance/vf;
+				vf=indexVitMaxAvance
+				document.getElementById("vitesseBroche").value=n;
+			}	
 		}
+		document.getElementById("vitesseAvance").value=vf
+
+
 		// On calcule la vitesse de rotation sur Z:
-		calculAvanceZ(document.getElementById("vitesseAvance").value);
+		calculAvanceZ(vf);
 		let ap = listeParam[indexMateriau][indexDiam+6];
 		let coef=1
 		if (indexLimite){ 
