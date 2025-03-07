@@ -40,37 +40,31 @@ function claculParamcoupe() {
 	
 	inputMateriau.addEventListener("change", () => {
 		indexMateriau = parseInt(inputMateriau.value);
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
-		calculAvanceZ(document.getElementById("vitesseAvance").value);
-		calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
+		calculs()
 	})
 	inputFraise.addEventListener("change", () => {
 		indexFraise = parseInt(inputFraise.value);
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
-		calculAvanceZ(document.getElementById("vitesseAvance").value);
-		calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
+		calculs()
 	})
 	inputDiam.addEventListener("change", () => {
 		indexDiam = parseFloat(inputDiam.value);
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
-		calculAvanceZ(document.getElementById("vitesseAvance").value);
-		calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
+		calculs()
 	})
 	inputNbD.addEventListener("change", () => {
 		indexNbD = Math.round(inputNbD.value);
-		calculAvance(document.getElementById("vitesseBroche").value, listeParam[indexMateriau][indexDiam+1],indexNbD);
+		calculs()
 	})
 	inputMachine.addEventListener("change", () => {
 		indexMachine = parseInt(inputMachine.value);
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
+		calculs()
 	})
 	btnLimite.addEventListener("change", () => {
 		indexLimite = btnLimite.checked;
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
+		calculs()
 	})
 	vitMaxRotation.addEventListener("change", () => {
 		indexVitMaxRotation = parseInt(vitMaxRotation.value);
-		calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
+		calculs()
 	})
 	inputVitMaxAvance.addEventListener("change", () => {
 		indexVitMaxAvance = parseInt(inputVitMaxAvance.value);
@@ -79,6 +73,7 @@ function claculParamcoupe() {
 	function calculs() {
 	let inputVitBroche = calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);
 	let ratio = calculAvance(inputVitBroche, listeParam[indexMateriau][indexDiam+1],indexNbD,indexVitMaxAvance);
+	console.log(ratio);
 	if (ratio<1) {calculFrRotation(listeParam[indexMateriau][indexFraise], indexDiam, indexVitMaxRotation , indexLimite , indexMachine);}
 	calculAvanceZ(document.getElementById("vitesseAvance").value);
 	calculProfonPasse(listeParam[indexMateriau][indexDiam+5]);
