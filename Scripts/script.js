@@ -8,6 +8,7 @@ function calculAvanceZ(vc){
 	document.getElementById("vitesseMaxAvanceZ").value = vc/2;
 };
 function claculParamcoupe() {
+	console.log("Hellos");
 	let inputMateriau = document.getElementById("typeMateriau");
 	let inputFraise = document.getElementById("typeFraise");
 	let inputDiam = document.getElementById("diam");
@@ -66,6 +67,7 @@ function claculParamcoupe() {
 			if (n>indexVitMaxRotation);
 				{n=indexVitMaxRotation};
 		};
+		console.log("n : "+n);console.log("n : "+n);
 		document.getElementById("vitesseBroche").value = n;
 
 		// On calcule la vitesse d’avance :
@@ -93,6 +95,6 @@ function claculParamcoupe() {
 		}
 		console.log("ap  :" + ap +" coef :  "+ + coef);
 		document.getElementById("profondeurPasse").value = ap/coef;
-		}
-		calculs();
+	}
+	calculs();
 };
