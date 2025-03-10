@@ -78,7 +78,8 @@ function claculParamcoupe() {
 		// On adapte de nouveau la vitesse de rotation :
 		if (indexLimite) {
 			if (vf>indexVitMaxAvance) {
-				ratio=parseInt(indexVitMaxAvance/vf);
+				ratio=parseInt((indexVitMaxAvance/vf)*100);
+				ratio=ratio/100
 				vf=indexVitMaxAvance;
 				console.log("ratio : "+ratio);
 				document.getElementById("vitesseBroche").value=n*ratio;
