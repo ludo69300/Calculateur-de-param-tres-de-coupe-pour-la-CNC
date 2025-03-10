@@ -67,7 +67,7 @@ function claculParamcoupe() {
 			if (n>indexVitMaxRotation);
 				{n=indexVitMaxRotation};
 		};
-		console.log("n : "+n);console.log("n : "+n);
+		console.log("n : "+n);
 		document.getElementById("vitesseBroche").value = n;
 
 		// On calcule la vitesse d’avance :
@@ -80,6 +80,7 @@ function claculParamcoupe() {
 			if (vf>indexVitMaxAvance) {
 				ratio=indexVitMaxAvance/vf;
 				vf=indexVitMaxAvance;
+				console.log("ratio : "+ratio);
 				document.getElementById("vitesseBroche").value=n*ratio;
 			}	
 		}
