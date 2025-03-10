@@ -74,7 +74,7 @@ function claculParamcoupe() {
 		let fz = listeParam[indexMateriau][indexDiam+1];
 		console.log("Fz : " + fz);
 		let vf = calculAvance(n, fz,indexNbD,);
-		console.log("vf : "+vf);
+		console.log("vf : "+vf + "vf Max : " + indexVitMaxAvance);
 		// On adapte de nouveau la vitesse de rotation :
 		if (indexLimite) {
 			if (vf>indexVitMaxAvance) {
